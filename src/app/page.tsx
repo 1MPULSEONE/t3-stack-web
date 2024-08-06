@@ -10,22 +10,20 @@ async function Images() {
 
     return (
         <div className='flex flex-wrap justify-center gap-x-4 gap-y-20 p-4'>
-            {[...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images].map(
-                image => (
-                    <div key={image.id} className='flex h-48 w-48 flex-col'>
-                        <Link href={`/img/${image.id}`} className={'h-48'}>
-                            <Image
-                                src={image.url}
-                                width={192}
-                                height={192}
-                                alt={image.name}
-                                className='h-full object-cover'
-                            />
-                            <div>{image.name}</div>
-                        </Link>
-                    </div>
-                )
-            )}
+            {images.map(image => (
+                <div key={image.id} className='flex h-48 w-48 flex-col'>
+                    <Link href={`/img/${image.id}`} className={'h-48'}>
+                        <Image
+                            src={image.url}
+                            width={192}
+                            height={192}
+                            alt={image.name}
+                            className='h-full object-cover'
+                        />
+                        <p className={'break-all'}>{image.name}</p>
+                    </Link>
+                </div>
+            ))}
         </div>
     );
 }
